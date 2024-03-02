@@ -31,11 +31,12 @@ const fullCode = `
 import re
 
 command = input()
-command =command.strip()
+command = command.strip()
 pattern = re.compile(r"^k(print|empPrint)\((.*)\)$", re.IGNORECASE)
 match = pattern.match(command)
 if match:
     arg = match.group(2)
+    arg = arg.strip()
     if arg.startswith("'") and arg.endswith("'") or arg.startswith('"') and arg.endswith('"'):
         string = arg[1:-1]
         print(string)

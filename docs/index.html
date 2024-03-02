@@ -24,23 +24,24 @@
     </span></button>
   <code class="blockcode">
     #Printing code for KEMP<br>
-    import re<br>
-    <br>
+import re<br>
+<br>
 command = input()<br>
-command =command.strip()<br>
+command = command.strip()<br>
 pattern = re.compile(r"^k(print|empPrint)\((.*)\)$", re.IGNORECASE)<br>
 match = pattern.match(command)<br>
 if match:<br>
-    &nbsp;&nbsp;&nbsp;arg = match.group(2)<br>
-    &nbsp;&nbsp;&nbsp;if arg.startswith("'") and arg.endswith("'") or arg.startswith('"') and arg.endswith('"'):<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string = arg[1:-1]<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(string)<br>
-    &nbsp;&nbsp;&nbsp;else:<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num = float(arg)<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(num)<br>
-    &nbsp;&nbsp;&nbsp;except ValueError:<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('ERR:with no quotes argument must be a number')<br>
+&nbsp;&nbsp;&nbsp;arg = match.group(2)<br>
+&nbsp;&nbsp;&nbsp;arg = arg.strip()<br>
+&nbsp;&nbsp;&nbsp;if arg.startswith("'") and arg.endswith("'") or arg.startswith('"') and arg.endswith('"'):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string = arg[1:-1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(string)<br>
+&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num = float(arg)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(num)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except ValueError:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('ERR:with no quotes argument must be a number')<br>
 else:<br>
 &nbsp;&nbsp;&nbsp;print('ERR:command not found')
     
