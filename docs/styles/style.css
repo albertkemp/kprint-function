@@ -1,0 +1,31 @@
+code{
+    background: #708090 ;  
+   }
+   .blockcode{
+   background-color:rgb(0, 0, 0, 0);
+   }
+   .borderexample{
+       border: 3px solid #d3d3d3;
+   }
+   h1{
+       font-family: 'IBM Plex Serif', serif;
+       font-size: 100px;
+   }
+   h2{
+       font-family: 'Lato', sans-serif;
+       font-size: 35px;
+       font-weight: normal;
+   }
+   p{
+       font-family: 'Open Sans', sans-serif;
+       font-size: 16px;
+   }
+   button{
+       background-color: #ffffff;
+       border: 2.75px solid #000000;
+       color: #000000;
+       font-size: 16px;
+       width: 100px;
+       transition: 0.5s ease-in-out;
+   }
+   button:hover{background-color: grey;cursor: pointer;}
