@@ -5,7 +5,7 @@ function darkMode() {
     document.body.style.color = "#f0f0f0";
     document.body.style.backgroundColor = "#333333"; 
     document.body.style.cssText +=
-      "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Lato&family=Open+Sans&display=swap');code{ background-color:rgb(200, 200, 200); } .blockcode{ background-color:rgb(0, 0, 0, 0); } .borderexample{ border: 5px solid grey; } h1{ font-family: 'IBM Plex Serif', serif; font-size: 100px; } h2{ font-family: 'Lato', sans-serif; font-size: 35px; } p{ font-family: 'Open Sans', sans-serif; font-size: 16px; }"; /* Changed = to += */
+      "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Lato&family=Open+Sans&display=swap');code{ background-color:rgb(200, 200, 200); } .blockcode{ background-color:rgb(0, 0, 0, 0); } .borderexample{ border: 5px solid grey; } h1{ font-family: 'IBM Plex Serif', serif; font-size: 100px; } h2{ font-family: 'Lato', sans-serif; font-size: 35px; } p{ font-family: 'Open Sans', sans-serif; font-size: 16px; }";
     document.querySelectorAll("code").forEach((element) => {
       element.style.backgroundColor = "#708090;";
     });
@@ -16,7 +16,7 @@ function darkMode() {
     document.body.style.backgroundColor = "#ffffff";
     togglebutton.style.cssText='border-color:#000000;background-color:#ffffff;color:#000000;'
     document.body.style.cssText +=
-      "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Lato&family=Open+Sans&display=swap');code{ background-color:rgb(0, 0, 0, 0); } .blockcode{ background-color:rgb(0, 0, 0, 0); } .borderexample{ border: 5px solid #d3d3d3; } h1{ font-family: 'IBM Plex Serif', serif; font-size: 100px; } h2{ font-family: 'Lato', sans-serif; font-size: 35px; } p{ font-family: 'Open Sans', sans-serif; font-size: 16px; }"; /* Changed = to += */
+      "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Lato&family=Open+Sans&display=swap');code{ background-color:rgb(0, 0, 0, 0); } .blockcode{ background-color:rgb(0, 0, 0, 0); } .borderexample{ border: 5px solid #d3d3d3; } h1{ font-family: 'IBM Plex Serif', serif; font-size: 100px; } h2{ font-family: 'Lato', sans-serif; font-size: 35px; } p{ font-family: 'Open Sans', sans-serif; font-size: 16px; }";
     document.querySelectorAll("code").forEach((element) => {
       element.style.backgroundColor = "#708090";
     });
