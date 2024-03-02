@@ -26,7 +26,8 @@ function darkMode() {
   }
 } 
 
-const fullCode = `#Printing code for KEMP
+const fullCode = `
+#Printing code for KEMP
 import re
 
 command = input()
@@ -46,6 +47,7 @@ if match:
             print('ERR:with no quotes argument must be a number')
 else:
     print('ERR:command not found')
+
 `;
 
 const basicCode = `#kprint code
