@@ -46,69 +46,104 @@ button{
 <h1>kprint()</h1>
 <h2>About</h2>
 <p>KEMP is the programming language made in python, developed by Albert Kemp. The print function name is <code>kprint()</code>, short for KempPrint() which allows you to print strings.</p>
-<h2>Syntax</h2>
+<h2>Syntax (full version, allowing single and double quotes, KempPrint and numerical functionality)</h2>
 <div class="borderexample">
+  <button onclick="copyCode(fullCode)"><span class="material-symbols-outlined">
+    content_copy
+    </span></button>
+  <code class="blockcode">
+    #printing code for KEMP<br>
+    import re<br>
+<br>
+    command = input()<br>
+    command =command.strip()<br>
+    pattern = re.compile(r"^k(print|empPrint)\((.*)\)$", re.IGNORECASE)<br>
+    match = pattern.match(command)<br>
+    if match:<br>
+       &nbsp;&nbsp;&nbsp;arg = match.group(2)<br>
+       &nbsp;&nbsp;&nbsp;if arg.startswith("'") and arg.endswith("'") or arg.startswith('"') and arg.endswith('"'):<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string = arg[1:-1]<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(string)<br>
+       &nbsp;&nbsp;&nbsp;else:<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num = float(arg)<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(num)<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except ValueError:<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('ERR:with no quotes argument must be a number')<br>
+    else:<br>
+    &nbsp;&nbsp;&nbsp; print('ERR:command not found')
+    
+    </code>
+  </div>
+<h2>Syntax of basic version (only strings with single and double quotes)</h2>
+<div class="borderexample">
+  <button onclick="copyCode(basicCode)"><span class="material-symbols-outlined">
+    content_copy
+    </span></button>
     <code class="blockcode">
         #kprint code<br>
         command = input()<br>
+        command=command.strip()<br>
         if command.startswith("kprint('") and command.endswith("')") or command.startswith('kprint("') and command.endswith('")'):<br>
-               string = command[8:-2]<br>
-               print(string)<br>
+        &nbsp;&nbsp;&nbsp;string = command[8:-2]<br>
+        &nbsp;&nbsp;&nbsp;print(string)<br>
         else:<br>
-           print('ERR:command not found')
+        &nbsp;&nbsp;&nbsp;print('ERR:command not found')
         </code>
 </div>
-
-
-<p>Updated versions allow you to use <code>KempPrint()</code> instead of <code>kprint()</code> and print numbers.</p>
-<h2>An updated version allowing <code>KempPrint()</code> as well as <code>kprint()</code></h2>
+<br>
+<h2>Syntax of KempPrint version (allowing usage of <code>KempPrint()</code> as well as <code>kprint()</code>)</h2>
 <div class="borderexample">
+  <button onclick="copyCode(kempCode)"><span class="material-symbols-outlined">
+    content_copy
+    </span></button>
     <code class="blockcode">
-        #kprint code<br>
+        #code allowing for KempPrint()<br>
 command = input()<br>
-# Strip any leading or trailing spaces from the command<br>
 command = command.strip()<br>
-# Use parentheses to group the logical operators<br>
-if (command.startswith("kprint('") or command.startswith("KempPrint('")) and command.endswith("')") or (command.startswith('kprint("') or command.startswith('KempPrint("')) and command.endswith('")'):<br>
-   # Check which type of quotation mark is used in the command<br>
-      if command.endswith("')"):<br>
-         # Split the command by single quotation marks and get the second element, which is the message<br>
-         string = command.split("'")[1]<br>
+if  command.startswith("kprint('") or command.startswith("KempPrint('")) and command.endswith("')") or (command.startswith('kprint("') or command.startswith('KempPrint("')) and command.endswith('")'):<br>
+&nbsp;&nbsp;&nbsp;if command.endswith("')"):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string = command.split("'")[1]<br>
+&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string = command.split('"')[1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(string)<br>
       else:<br>
-         # Split the command by double quotation marks and get the second element, which is the message<br>
-         string = command.split('"')[1]<br>
-         print(string)<br>
-      else:<br>
-         print('ERR:command not found')
+      &nbsp;&nbsp;&nbsp;print('ERR:command not found')
     </code>
 </div>
-<script>
-   const togglebutton = document.getElementById("darkmodetoggle");
-let isDarkMode = false;
-function darkMode() {
-  if (isDarkMode == false) { /* Changed === to == */
-    document.body.style.color = "#f0f0f0";
-    document.body.style.backgroundColor = "#1e1e1e"; /* Changed cssText to backgroundColor */
-    document.body.style.cssText +=
-      "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Lato&family=Open+Sans&display=swap');code{ background-color:rgb(200, 200, 200); } .blockcode{ background-color:rgb(0, 0, 0, 0); } .borderexample{ border: 5px solid grey; } h1{ font-family: 'IBM Plex Serif', serif; font-size: 100px; } h2{ font-family: 'Lato', sans-serif; font-size: 35px; } p{ font-family: 'Open Sans', sans-serif; font-size: 16px; }"; /* Changed = to += */
-    document.querySelectorAll("code").forEach((element) => {
-      element.style.backgroundColor = "#708090";
-    });
-    togglebutton.style.cssText = 'background-color:#000000;border-color:#ffffff;color:#ffffff;'
-    isDarkMode = true; /* Added a statement to change the value of isDarkMode */
-  } else {
-    document.body.style.color = "#000000";
-    document.body.style.backgroundColor = "#ffffff"; /* Changed cssText to backgroundColor */
-    togglebutton.style.cssText='border-color:#000000;background-color:#ffffff;color:#000000;'
-    document.body.style.cssText +=
-      "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Lato&family=Open+Sans&display=swap');code{ background-color:rgb(0, 0, 0, 0); } .blockcode{ background-color:rgb(0, 0, 0, 0); } .borderexample{ border: 5px solid #d3d3d3; } h1{ font-family: 'IBM Plex Serif', serif; font-size: 100px; } h2{ font-family: 'Lato', sans-serif; font-size: 35px; } p{ font-family: 'Open Sans', sans-serif; font-size: 16px; }"; /* Changed = to += */
-    document.querySelectorAll("code").forEach((element) => {
-      element.style.backgroundColor = "#708090";
-    });
-    togglebutton
-    isDarkMode = false; /* Added a statement to change the value of isDarkMode */
-  }
-} /* Added a closing parenthesis */
+<br>
+<h2>Syntax of number version (Code with number functionality)</h2>
+<div class="borderexample">
+  <button onclick="copyCode(numCode)"><span class="material-symbols-outlined">
+    content_copy
+    </span></button>
+  <code class="blockcode">
+  #kprint with numerical functionality<br>
+  import re<br>
+<br>
+command = input()<br>
+command = command.strip()<br>
+pattern = re.compile(r"^kprint\((.*)\)$")<br>
+match = pattern.match(command)<br>
+if match:<br>
+    &nbsp;&nbsp;&nbsp;arg = match.group(1)<br>
+    if arg.startswith("'") and arg.endswith("'") or arg.startswith('"') and arg.endswith('"'):<br>
+    &nbsp;&nbsp;&nbsp;string = arg[1:-1]<br>
+    &nbsp;&nbsp;&nbsp;print(string)<br>
+    else:<br>
+    &nbsp;&nbsp;&nbsp;try:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num = float(arg)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(num)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except ValueError:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('ERR:with no quotes argument must be a number')<br>
+else:<br>
+&nbsp;&nbsp;&nbsp;print('ERR:command not found')<br>
+</code>
+</div>
+<br>
+
+<script src="scripts/main.js">
+   
 </script>
 </body>
 </html>
