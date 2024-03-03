@@ -51,7 +51,8 @@ else:
 
 `;
 
-const basicCode = `#kprint code
+const basicCode = `
+#kprint code
 command = input()
 if command.startswith("kprint('") and command.endswith("')") or command.startswith('kprint("') and command.endswith('")'):
 string = command[8:-2]
@@ -59,7 +60,8 @@ print(string)
 else:
 print('ERR:command not found') `;
 
-const numCode = `#Number functionality syntax
+const numCode = `
+#Number functionality syntax
 import re
 
 command = input()
@@ -80,7 +82,8 @@ if match:
 else:
     print('ERR:command not found')
 `;
-const kempCode = `#syntax allowing KempPrint
+const kempCode = `
+#syntax allowing KempPrint
 command = input()
 command = command.strip()
 if (command.startswith("kprint('") or command.startswith("KempPrint('")) and command.endswith("')") or (command.startswith('kprint("') or command.startswith('KempPrint("')) and command.endswith('")'):
